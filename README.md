@@ -1,10 +1,10 @@
 # 🏁 Tugas Akhir (TA) - Final Project
 
-**Nama Mahasiswa**: [Nama Lengkap]  
-**NRP**: [Nomor Registrasi Pokok]  
-**Judul TA**: [Judul Tugas Akhir]  
-**Dosen Pembimbing**: [Nama Dosen]  
-**Dosen Ko-pembimbing**: [Nama Dosen]
+**Nama Mahasiswa**: Urdhanaka Aptanagi  
+**NRP**: 5025211123  
+**Judul TA**: Implementasi Multi-Tenancy Untuk Provisioning Klaster Kubernetes  
+**Dosen Pembimbing**: Royyana Muslim Ijtihadie S.Kom., M.Kom., Ph.D.  
+**Dosen Ko-pembimbing**: Prof. Ir. Ary Mazharuddin Shiddiqi S.Kom., M.Comp.Sc., Ph.D., IPM.  
 
 ---
 
@@ -16,37 +16,54 @@ Embed video demo di bawah ini (ganti `VIDEO_ID` dengan ID video YouTube Anda):
 
 ---
 
-*Konten selanjutnya hanya merupakan contoh awalan yang baik. Anda dapat berimprovisasi bila diperlukan.*
-
 ## 🛠 Panduan Instalasi & Menjalankan Software  
 
 ### Prasyarat  
-- Daftar dependensi (contoh):
-  - Python 3.10+
-  - Node.js v18+
-  - MySQL 8.0
-  - [Lainnya...]
+- Daftar dependensi:
+  - Komputer fisik worker:
+    - libvirtd
+    - Golang v1.24.5
+  - Website server:
+    - Golang v1.24.5
+    - Postgresql container
+    - Redis container
 
 ### Langkah-langkah  
 1. **Clone Repository**  
    ```bash
    git clone https://github.com/Informatics-ITS/TA.git
    ```
-2. **Instalasi Dependensi**
+2. **Instalasi Dependensi**  
+   Sebelum memulai instalasi dependensi, diperlukan beberapa dependensi melalui package manager dari Linux.
+   Dalam tugas akhir ini, distribusi Ubuntu digunakan, sehingga
+   perintah command line di bawah merupakan perintah command line
+   untuk Ubuntu. Untuk distribusi Linux lainnya, dapat mengikuti
+   dokumentasi dari package manager distribusi tersebut. Pada
+   komputer worker:
    ```bash
-   cd [folder-proyek]
-   pip install -r requirements.txt  # Contoh untuk Python
-   npm install  # Contoh untuk Node.js
+   apt install libvirt
+   ```
+   untuk sistem provisioning:  
+   ```bash
+   cd ta-urdhanaka # masuk ke root directory dari project
+   cd nodes-grpc-local # untuk aplikasi provisioning
+   go mod tidy
+   ```
+   untuk website server:  
+   ```bash
+   cd ta-urdhanaka # masuk ke root directory dari project
+   cd nodes-grpc-frontend
    ```
 3. **Konfigurasi**
 - Salin/rename file .env.example menjadi .env
 - Isi variabel lingkungan sesuai kebutuhan (database, API key, dll.)
-4. **Jalankan Aplikasi**
+4. **Jalankan Aplikasi**  
+jalankan website server terlebih dahulu
    ```bash
-   python main.py  # Contoh untuk Python
+   python main.py
    npm start      # Contoh untuk Node.js
    ```
-5. Buka browser dan kunjungi: `http://localhost:3000` (sesuaikan dengan port proyek Anda)
+5. Buka browser dan kunjungi: `http://localhost:8080`
 
 ---
 
@@ -71,5 +88,5 @@ Pastikan proyek memenuhi kriteria berikut sebelum submit:
 ## ⁉️ Pertanyaan?
 
 Hubungi:
-- Penulis: [email@mahasiswa]
+- Penulis: 5025211123@student.its.ac.id
 - Pembimbing Utama: [email@pembimbing]
